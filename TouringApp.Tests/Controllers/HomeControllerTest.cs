@@ -17,7 +17,6 @@ namespace TouringApp.Tests.Controllers
         {
             // Arrange
             HomeController controller = new HomeController();
-
             // Act
             ViewResult result = controller.Index() as ViewResult;
 
@@ -35,20 +34,7 @@ namespace TouringApp.Tests.Controllers
             ViewResult result = controller.About() as ViewResult;
 
             // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
-        }
-
-        [TestMethod]
-        public void Contact()
-        {
-            // Arrange
-            HomeController controller = new HomeController();
-
-            // Act
-            ViewResult result = controller.Contact() as ViewResult;
-
-            // Assert
-            Assert.IsNotNull(result);
+            Assert.AreEqual("Mensaje distinto", result.ViewBag.Message);
         }
     }
 }
