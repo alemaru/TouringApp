@@ -1,0 +1,72 @@
+﻿@model TouringApp.Models.TO.Cartilla
+
+@{
+    ViewBag.Title = "Resultados";
+}
+
+<h2>Resultados</h2>
+
+<table>
+    <tr>
+        <th >
+            <p>Examen escrito: </p>
+        </th>
+        <th>
+            @if (Model.Ex_escrito != null)
+            {   
+                @Html.DisplayFor(model => model.Ex_escrito)
+            }
+            else
+            {
+                <p>Aun no realiza el examen</p>
+            }
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <p>Examen practico: </p>
+        </th>
+        <th>
+            @if (Model.Ex_practico != null)
+            {
+                @Html.DisplayFor(model => model.Ex_practico)
+            }
+            else
+            {
+                <p>Aun no realiza el examen</p>
+            }
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <p>Examen medico: </p>
+        </th>
+        <th>
+            @if (Model.Ex_medico != null)
+            {
+                if (Model.Ex_medico == true)
+                {
+                    <p>Aprobado</p>
+                }
+                else
+                {
+                    <p>Desaprobado</p>
+                }
+            }
+            else
+            {
+                <p>Aun no realiza el examen</p>
+            }
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <p>Comentario: </p>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            @Html.DisplayFor(model => model.Comentario)
+        </th>
+    </tr>
+</table>

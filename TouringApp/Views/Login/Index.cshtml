@@ -1,0 +1,83 @@
+﻿@model TouringApp.Models.TO.Usuario
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Touring App", "Index", "Home", null, new { @class = "navbar-brand" })
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            <br />
+            <br />
+            <div id="loginbox">
+
+                @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { id = "loginform", @class = "form-vertical" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+
+                    <p>Ingrese su usuario y contraseña para continuar.</p>
+                    <br />
+                    <div class="control-group">
+                        <div class="controls">
+                            <div class="input-prepend">
+                                <span class="add-on"><i class="fa fa-user"></i></span>
+                                @Html.TextBoxFor(model => model.DNI, new { placeholder = "Usuario", name = "Usuario", type = "text" })
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <div class="input-prepend">
+                                <span class="add-on"><i class="fa fa-lock"></i></span>
+                                @Html.TextBoxFor(model => model.Contraseña, new { placeholder = "Contraseña", name = "Contrasena", type = "password" })
+
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-actions">
+                        <span>
+                            <input type="submit" class="btn btn-inverse" value="Ingresar"  />
+                        </span>
+                    </div>
+
+                }
+
+
+            </div>
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Aplicacion Touring Peru</p>
+            </footer>
+        </div>
+
+   
+
+    <script src="@Url.Content("~/Content/js/jquery.min.js")"></script>
+
+    <script src="@Url.Content("~/Content/js/unicorn.login.js")"></script>
+</body>
+</html>
